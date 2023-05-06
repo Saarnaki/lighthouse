@@ -23,6 +23,7 @@ class SchemaBuilder
 
     public function schema(): Schema
     {
+        info('inside schema');
         return $this->schema ??= $this->build(
             $this->astBuilder->documentAST(),
         );
@@ -31,6 +32,7 @@ class SchemaBuilder
     /** Build an executable schema from an AST. */
     protected function build(DocumentAST $documentAST): Schema
     {
+        info('inside build'); 
         $config = SchemaConfig::create();
 
         $this->typeRegistry->setDocumentAST($documentAST);
